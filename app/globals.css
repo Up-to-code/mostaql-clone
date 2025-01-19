@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* RTL Support */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply fixed inset-0 bg-white z-50 transform transition-transform duration-300 ease-in-out;
+}
+
+.mobile-menu.open {
+  @apply translate-x-0;
+}
+
+.mobile-menu.closed {
+  @apply translate-x-full;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2196f3;
+  border-radius: 4px;
+}
+
+/* Mobile-first Typography */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-xl;
+  }
+  h2 {
+    @apply text-lg;
+  }
+  h3 {
+    @apply text-base;
+  }
+}
+
+/* Project Cards */
+.project-card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
+/* Status Tags */
+.status-tag {
+  @apply px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.status-tag-open {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-tag-closed {
+  @apply bg-red-100 text-red-800;
+}
+
+/* Form Elements */
+.form-input {
+  @apply w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.form-button {
+  @apply px-4 py-2 rounded-lg transition-colors duration-200;
+}
+
+.form-button-primary {
+  @apply bg-[#2196f3] text-white hover:bg-[#1976d2];
+}
+
+.form-button-secondary {
+  @apply border border-[#2196f3] text-[#2196f3] hover:bg-gray-50;
+}
+
+/* Navigation */
+.nav-link {
+  @apply px-4 py-2 rounded-lg transition-colors duration-200;
+}
+
+.nav-link-light {
+  @apply bg-white/10 hover:bg-white/20 text-white;
+}
+
+/* Profile Elements */
+.profile-badge {
+  @apply absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white;
+}
+
+/* Responsive Grid */
+.responsive-grid {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-4 flex justify-around items-center md:hidden;
+}
+
+.mobile-nav-item {
+  @apply flex flex-col items-center text-xs text-gray-600;
+}
+
+.mobile-nav-item.active {
+  @apply text-[#2196f3];
+}
